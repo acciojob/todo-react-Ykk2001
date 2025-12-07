@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../styles/styles.css'
+import "../styles/styles.css";
 export default function Todo() {
   const [input, setInput] = useState("");
   const [todos, setTodo] = useState([]);
@@ -15,10 +15,9 @@ export default function Todo() {
     setInput("");
   }
 
-  function deleteTask(id)
-  {
-  let filterTask= todos.filter((todo,index)=>index!==id);
-  setTodo(filterTask);
+  function deleteTask(id) {
+    let filterTask = todos.filter((todo, index) => index !== id);
+    setTodo(filterTask);
   }
 
   return (
@@ -26,19 +25,30 @@ export default function Todo() {
       <h1 className="title">To-Do List</h1>
 
       <div className="input-box">
-        <input type="text" value={input} onChange={handleChange} placeholder="Enter a Task.." className="todo-input"></input>
-        <button onClick={addTodo} className="add-btn">Add Todo</button>
+        <input
+          type="text"
+          value={input}
+          onChange={handleChange}
+          placeholder="Enter a Task.."
+          className="todo-input"
+        ></input>
+        <button onClick={addTodo} className="add-btn">
+          Add Todo
+        </button>
       </div>
 
       <div className="todo-list">
         {todos.map((todo, index) => (
-          <ul key={index} className="todo-item">
-            <p>{todo}</p>
-            <button onClick={()=>deleteTask(index)} className="delete-btn">Delete</button>
+          <ul key={index}>
+            <li className="todo-item">
+              <p>{todo}</p>
+              <button onClick={() => deleteTask(index)} className="delete-btn">
+                Delete
+              </button>
+            </li>
           </ul>
         ))}
       </div>
-
     </div>
   );
 }
