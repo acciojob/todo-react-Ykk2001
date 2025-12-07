@@ -38,16 +38,16 @@ export default function Todo() {
       </div>
 
       <div className="todo-list">
-        {todos.map((todo, index) => (
-          <ul key={index}>
+        <ul>
+          {todos.map((todo, index) => (
             <li className="todo-item">
               <p>{todo}</p>
               <button onClick={() => deleteTask(index)} className="delete-btn">
                 Delete
               </button>
             </li>
-          </ul>
-        ))}
+          ))}
+        </ul>
       </div>
     </div>
   );
